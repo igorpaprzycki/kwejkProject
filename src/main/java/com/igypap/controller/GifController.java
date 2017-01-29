@@ -17,7 +17,8 @@ public class GifController {
     private GifRepository gifRepository;
 
     @GetMapping("/")
-    public String home() {
+    public String home(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifRepository.getAllGifs());
         return "home";
     }
 

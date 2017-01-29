@@ -28,4 +28,8 @@ public class GifRepository {
         }
         return new Gif("", "", false);
     }
+
+    public List<Gif> getAllGifs() {
+        return ALL_GIFS;
+    }
 }
