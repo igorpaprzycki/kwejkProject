@@ -28,4 +28,15 @@ public class GifController {
         modelMap.addAttribute("gif", gif);
         return "gif-details";
     }
+
+    @GetMapping("/favorites")
+    public String favorites(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifRepository.getFavorites());
+        return "favorites";
+    }
+
+    @GetMapping("/categories")
+    public String categories() {
+        return "category";
+    }
 }

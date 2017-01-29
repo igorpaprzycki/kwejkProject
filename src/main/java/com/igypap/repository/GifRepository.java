@@ -3,6 +3,7 @@ package com.igypap.repository;
 import com.igypap.model.Gif;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,5 +32,16 @@ public class GifRepository {
 
     public List<Gif> getAllGifs() {
         return ALL_GIFS;
+    }
+
+    public List<Gif> getFavorites() {
+        List<Gif> gifList = new ArrayList<>();
+        for (Gif gif :
+                ALL_GIFS) {
+            if (gif.isFavorite()) {
+                gifList.add(gif);
+            }
+        }
+        return gifList;
     }
 }
