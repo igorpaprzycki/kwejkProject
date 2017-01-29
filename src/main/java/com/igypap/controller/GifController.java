@@ -36,11 +36,6 @@ public class GifController {
         return "favorites";
     }
 
-    @GetMapping("/categories")
-    public String categories() {
-        return "category";
-    }
-
     @GetMapping("/gif/{name}")
     public String gifDetails(@PathVariable String name, ModelMap modelMap) {
         modelMap.addAttribute("gif", gifRepository.findByName(name));

@@ -6,12 +6,28 @@ package com.igypap.model;
 public class Gif {
     private String name;
     private String username;
+    private int categoryId;
     private boolean favorite;
 
     public Gif(String name, String username, boolean favorite) {
         this.name = name;
         this.username = username;
         this.favorite = favorite;
+    }
+
+    public Gif(String name, String username, int categoryId, boolean favorite) {
+        this.name = name;
+        this.username = username;
+        this.categoryId = categoryId;
+        this.favorite = favorite;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
