@@ -1,4 +1,7 @@
-package com.igypap.model;
+package com.igypap.repository;
+
+import com.igypap.model.Gif;
+import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,6 +9,7 @@ import java.util.List;
 /**
  * Created by igypap on 29.01.17.
  */
+@Repository
 public class GifRepository {
     private static final List<Gif> ALL_GIFS = Arrays.asList(
             new Gif("android-explosion", "Chris Ramacciotti", false),
