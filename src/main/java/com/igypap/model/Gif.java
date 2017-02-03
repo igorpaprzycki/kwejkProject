@@ -1,13 +1,25 @@
 package com.igypap.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by igypap on 29.01.17.
  */
+@Entity
+@Table(name = "gif")
 public class Gif {
+
+    @Id
     private String name;
+
     private String username;
     private int categoryId;
     private boolean favorite;
+
+    public Gif() {
+    }
 
     public Gif(String name, String username, boolean favorite) {
         this.name = name;
