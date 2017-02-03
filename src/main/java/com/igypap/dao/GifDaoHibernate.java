@@ -46,4 +46,15 @@ public class GifDaoHibernate implements GifDao {
         }
         return gifList;
     }
+
+    @Override
+    public List<Gif> findByCategoryId(int id) {
+        List<Gif> gifList = new ArrayList<>();
+        for (Gif gif : getAllGifs()) {
+            if (gif.getCategoryId() == id) {
+                gifList.add(gif);
+            }
+        }
+        return gifList;
+    }
 }

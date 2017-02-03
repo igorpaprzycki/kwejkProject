@@ -15,4 +15,6 @@ public interface GifDao {
     List<Gif> getAllGifs();
 
     List<Gif> getFavorites();
+
+    List<Gif> findByCategoryId(int id);
 }
