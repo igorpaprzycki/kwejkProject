@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Created by igypap on 28.01.17.
@@ -27,6 +29,7 @@ public class GifController {
         gifDao.addGif(new Gif("cowboy-coder", "Grace Hopper", 3, false));
         gifDao.addGif(new Gif("infinite-andrew", "Marissa Mayer", 3, true));*/
         modelMap.addAttribute("gifs", gifDao.getAllGifs());
+        modelMap.addAttribute("gif", new Gif());
         return "home";
     }
 
@@ -48,4 +51,15 @@ public class GifController {
         modelMap.addAttribute("gif", gifDao.findGifById(name));
         return "gif-details";
     }
+
+    @PostMapping("/gif/results")
+    public String searchGif(@ModelAttribute Gif gif, ModelMap modelMap) {
+        Gif resultGif = gifDao.findGifById(gif.getName());
+        if (resultGif != null) {
+            modelMap.addAttribute("gif", resultGif);
+            return "gif-details";
+        }
+        return "redirect:/";
+    }
+
 }
